@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Палочки</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="table">
+    <header class="header">
+      <h1>Палочки</h1>
+      <p class="rules">На столе 21 палочка. За ход можно взять 1, 2 или 3. Кто взял последнюю — проиграл.</p>
+    </header>
+
+    <section class="status" aria-live="polite">
+      <div id="turn" class="turn">Выберите режим и начните игру</div>
+      <div id="count" class="count">Осталось: 21</div>
+    </section>
+
+    <section id="board" class="board" aria-label="Палочки на столе"></section>
+
+    <section class="controls">
+      <div class="take">
+        <button type="button" class="take-btn" data-n="1" disabled>Взять 1</button>
+        <button type="button" class="take-btn" data-n="2" disabled>Взять 2</button>
+        <button type="button" class="take-btn" data-n="3" disabled>Взять 3</button>
+      </div>
+
+      <form id="setup" class="setup">
+        <label>
+          Режим
+          <select id="mode">
+            <option value="cpu">Против компьютера</option>
+            <option value="hotseat">Вдвоём за одним столом</option>
+          </select>
+        </label>
+        <label>
+          Сложность
+          <select id="difficulty">
+            <option value="easy">Лёгкая</option>
+            <option value="hard" selected>Сложная</option>
+          </select>
+        </label>
+        <label>
+          Первый ход
+          <select id="first">
+            <option value="human">Вы</option>
+            <option value="cpu">Компьютер</option>
+          </select>
+        </label>
+        <button type="submit" class="start">Новая партия</button>
+      </form>
+    </section>
+
+    <p id="result" class="result" hidden></p>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
